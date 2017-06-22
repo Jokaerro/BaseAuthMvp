@@ -10,5 +10,9 @@
     <string name="roboto_black">sans-serif-black</string>
     <string name="roboto_thin">sans-serif-thin</string>
     <string name="roboto_medium">sans-serif-medium</string>
+    <string name="sf_thin">fonts/SF_UI_Display_Thin.ttf</string>
+    <string name="sf_medium">fonts/SF_UI_Display_Medium.ttf</string>
+    <string name="neue_book">fonts/PTBebasNeueBook.ttf</string>
+    <string name="neue_regular">fonts/PTBebasNeueRegular.ttf</string>
 
 </resources>

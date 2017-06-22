@@ -1,4 +1,4 @@
-package pro.games_box.baseauthmvp;
+package pro.games_box.baseauthmvp.ui.activities;
 
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -6,16 +6,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pro.games_box.baseauthmvp.BuildConfig;
+import pro.games_box.baseauthmvp.R;
 import pro.games_box.baseauthmvp.mvp.presenter.AuthPresenter;
 import pro.games_box.baseauthmvp.mvp.presenter.IAuthPresenter;
 import pro.games_box.baseauthmvp.mvp.view.IAuthView;
+import pro.games_box.baseauthmvp.ui.activities.BaseActivity;
 import pro.games_box.baseauthmvp.ui.custom_views.AuthPanel;
 
-public class LoginActivity extends AppCompatActivity implements IAuthView, View.OnClickListener {
+import android.view.WindowManager.LayoutParams;
+
+public class LoginActivity extends BaseActivity implements IAuthView, View.OnClickListener {
     AuthPresenter mPresenter = AuthPresenter.getInstance();
 
     @BindView(R.id.coordinator_container)
@@ -41,6 +48,11 @@ public class LoginActivity extends AppCompatActivity implements IAuthView, View.
         ButterKnife.bind(this);
         mPresenter.takeView(this);
         mPresenter.initView();
+
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.rotationAnimation = LayoutParams.ROTATION_ANIMATION_CROSSFADE;
+        params.flags = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        getWindow().setAttributes(params);
 
         mLoginBtn.setOnClickListener(this);
         mShowGamesBtn.setOnClickListener(this);
